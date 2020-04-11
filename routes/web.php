@@ -17,3 +17,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.', '
     Route::resource('users', 'UsersController');
 
 });
+
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
