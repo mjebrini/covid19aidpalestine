@@ -1,5 +1,6 @@
 <?php
-Route::get('/', function () { return redirect('/admin/home'); });
+Route::get('/', 'AidController@index')->name('index');
+Route::get('/activities', 'AidController@index')->name('index');
 
 Auth::routes(['register' => false]);
 

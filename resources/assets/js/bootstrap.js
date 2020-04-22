@@ -9,7 +9,7 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-
+    window.Laravel = { csrfToken: $('meta[name=csrf-token]').attr("content") };
     require('bootstrap-sass');
 } catch (e) {}
 
