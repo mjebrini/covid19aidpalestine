@@ -9,7 +9,7 @@ use Auth;
 use App\User;
 
 class LoginController extends Controller
-{
+{ 
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/activities';
 
     /**
      * Create a new controller instance.
@@ -84,9 +84,8 @@ class LoginController extends Controller
                     ->where('provider_id', $providerUser->getId())
                     ->first();
         if ($account) {
-
-            return $account->user;
-        } else {
+            return $account;
+        } else { 
             $user = User::where('email', $providerUser->getEmail())
             ->first();
             if (! $user) {
@@ -102,5 +101,9 @@ class LoginController extends Controller
         }
     }
 
+    public function logout() {
+        Auth::logout();
+        return redirect('/');
+    }
     
 }

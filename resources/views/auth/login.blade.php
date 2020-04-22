@@ -62,15 +62,7 @@
                                 </a>
 
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6 text" style="padding-top:8px">
-                                <a class="btn btn-primary px-2" href="{{ url('login/facebook') }}">
-                                    <i class="fab fa-facebook mr-2"></i> Login with Facebook
-                                </a>&nbsp;
-                            </div>
-                        </div>
+                        </div> 
                     </form>
                 </div>
             </div>
