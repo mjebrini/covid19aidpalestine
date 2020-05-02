@@ -33,11 +33,9 @@ window.onAppReady = function() {
 
     window.store = {user:null};
     auth.default.login(function(user){
-        window.store.user = user;
-        console.info("User logged in ", user);
+        window.store.user = user; 
         $('body').addClass('loggedin');
-    }, function(err){ 
-        console.info("User isn't logged in ", err);
+    }, function(err){  
         $('body').addClass('notloggedin');
     });
 

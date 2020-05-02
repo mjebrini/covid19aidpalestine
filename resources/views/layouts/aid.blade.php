@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ trans('panel.site_title') }}</title> 
+    <title>{{ trans('aid.site_title') }}</title> 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     @yield('styles')
 </head>
 
 <body class="aid-page">
-   
+    
     @yield("content")
-      
-    @yield('scripts')
+    
     <script async src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

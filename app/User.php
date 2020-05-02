@@ -40,6 +40,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_user');
     }
     
+    /**
+     * Get the aids for the user.
+     */
+    public function aids()
+    {
+        return $this->hasMany('Aid','owner','id');
+    }
     
     
 }

@@ -1,6 +1,8 @@
 <?php
-Route::get('/', 'AidController@index')->name('index');
-Route::get('/activities', 'AidController@index')->name('index');
+Route::get('/', 'MainController@index')->name('index');
+Route::get('/activities', 'MainController@activities')->name('activities');
+Route::get('/api/activities', 'MainController@activitiesByRadius')->name('api.activities');
+Route::resource('/aid', 'AidController')->only(['create', 'store','show']);
 
 Auth::routes(['register' => false]);
 

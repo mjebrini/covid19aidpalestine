@@ -14,10 +14,11 @@ class CreateAidsTables extends Migration
     public function up()
     {
  
-        Schema::create('Aid', function (Blueprint $table) {
+        Schema::create('aids', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type', 100)->nullable();
-            $table->biginteger('owner')->unsigned()->index()->nullable();
+            $table->biginteger('owner_id')->unsigned()->index()->nullable();
+            $table->string('title', 255)->nullable();
             $table->string('category', 255)->nullable();
             $table->string('location', 255)->nullable();
             $table->float('lat', 12, 8)->nullable();
@@ -27,16 +28,16 @@ class CreateAidsTables extends Migration
             $table->timestamps();
 
             $table->index(
-                ['type', 'owner', 'category'],
+                ['type', 'owner_id', 'category'],
                 'aids_entity_index'
             );
     
-            $table->foreign('owner')
+            $table->foreign('owner_id')
                 ->references('id')->on('Users')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
 
-        Schema::create('AidActivity', function (Blueprint $table) {
+        Schema::create('aid_activities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->biginteger('aid_id')->unsigned()->index()->nullable(false);
             $table->biginteger('owner_id')->unsigned()->index()->nullable(false);
@@ -45,7 +46,7 @@ class CreateAidsTables extends Migration
             $table->timestamps();
     
             $table->foreign('aid_id')
-                ->references('id')->on('Aid')
+                ->references('id')->on('aids')
                 ->onDelete('cascade');
 
             $table->foreign('owner_id')
@@ -63,7 +64,7 @@ class CreateAidsTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AidActivity');
-        Schema::dropIfExists('Aid');
+        Schema::dropIfExists('aid_activities');
+        Schema::dropIfExists('aids');
     }
 }
