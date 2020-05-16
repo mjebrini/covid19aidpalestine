@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col">
+        <div class="col" dir="rtl">
             @if($type==1)
             <h1>طلب مساعدة</h1>
             @else

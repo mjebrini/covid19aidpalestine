@@ -5,8 +5,8 @@ return [
     'submit' => [
         'label' => 'نشر المساعدة'
     ],
-    'title' => ['label'=>'Name','error' =>'Missing Name Value'],
-    'location' => ['label'=>'Address','error' =>'Missing Address Value'],
-    'category' => ['label'=>'Type','error' =>'Missing type Value'],
-    'description' => ['label'=>'Notes','error' =>'Missing notes Value'],
+    'title' => ['label'=>'الجهة المعنية','error' =>'يرجة توضيح الجهة أو الشخوص المعنيين'],
+    'location' => ['label'=>'العنوان','error' =>'يرجى وضع عنوان المنطقة'],
+    'category' => ['label'=>'نوع المساعدة','error' =>'يرجى اختيار نوع المساعدة'],
+    'description' => ['label'=>'تفاصيل','error' =>'أضف بعض التفاصيل للمساعدة لمساعدة الآخرين في الوصول إليك'],
 ];
